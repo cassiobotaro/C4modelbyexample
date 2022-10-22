@@ -1,0 +1,23 @@
+name: lint
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Validate workspace omit
+        uses: gilbertotcc/structurizr-action@v1
+        with:
+          args: 'validate -w omit.dsl'
+
+      - name: Validate workspace pubsub
+        uses: gilbertotcc/structurizr-action@v1
+        with:
+          args: 'validate -w pubsub.dsl'
