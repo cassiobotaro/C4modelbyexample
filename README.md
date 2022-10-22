@@ -5,7 +5,7 @@
 | Description |File | Image |
 |:---| :---: | :---: |
 | Omit the intermediary, and instead use notation to signify that the interaction between service A and B happens via an intermediary. | [omit.dsl](omit.dsl)  | [omit.png](omit.png)|
-| Publish-Subscriber using topics and explicit intermediary. | [pubsub.dsl](pubsub.dsl) | [pubsub,png](pubsub.png) |
+| Publish-Subscriber using topic and explicit intermediary. | [pubsub.dsl](pubsub.dsl) | [pubsub,png](pubsub.png) |
 
 ## How to run
 
