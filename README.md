@@ -6,6 +6,7 @@
 |:---| :---: | :---: |
 | Omit the intermediary, and instead use notation to signify that the interaction between service A and B happens via an intermediary. | [omit.dsl](omit.dsl)  | [omit.png](omit.png)|
 | Publish-Subscriber using topic and explicit intermediary. | [pubsub.dsl](pubsub.dsl) | [pubsub,png](pubsub.png) |
+| Example of Content Management System (CMS) | [cms.dsl](cms.dsl) | [cms_containers.png](cms_containers.png) [cms_systemcontext.png](cms_systemcontext.png) |
 
 ## How to run
 
