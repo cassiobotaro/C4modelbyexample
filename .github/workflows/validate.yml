@@ -13,6 +13,7 @@ jobs:
       image: "structurizr/cli"
     steps:
       - uses: actions/checkout@v3
+      - run: chmod +x /usr/local/structurizr-cli/structurizr.sh
       - name: validate omit
         run: |
-          ls -l /usr/local/structurizr-cli
+          /usr/local/structurizr-cli/structurizr.sh --help
