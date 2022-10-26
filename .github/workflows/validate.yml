@@ -32,4 +32,4 @@ jobs:
         
       - name: validate omit
         run: |
-          structurizr validate -w ${{ martix.workspace }}
+          structurizr validate -w ${{ matrix.workspace }}
