@@ -31,6 +31,6 @@ jobs:
           chmod +x /usr/local/structurizr-cli/structurizr.sh
           ln -s /usr/local/structurizr-cli/structurizr.sh /bin/structurizr
         
-      - name: validate omit
+      - name: validate workspace ${{ matrix.workspace }}
         run: |
           structurizr validate -w ${{ matrix.workspace }}
