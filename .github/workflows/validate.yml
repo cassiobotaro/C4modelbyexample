@@ -15,4 +15,4 @@ jobs:
       - uses: actions/checkout@v3
       - name: validate omit
         run: |
-          ls /usr/local/structurizr-cli
+          ls -l /usr/local/structurizr-cli
