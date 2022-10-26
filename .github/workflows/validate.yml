@@ -25,6 +25,7 @@ jobs:
         matrix:
             workspace: ${{ fromJson(needs.list-workspaces.outputs.matrix) }}    
     steps:
+      - uses: actions/checkout@v3
       - name: prepare environment
         run: | 
           chmod +x /usr/local/structurizr-cli/structurizr.sh
