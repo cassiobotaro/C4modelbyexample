@@ -1,4 +1,4 @@
-name: lint
+name: Lint Workspaces
 on:
   push:
     branches:
@@ -7,12 +7,24 @@ on:
     branches:
       - "main"
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    container:
-      image: "structurizr/cli"
+  list-workspaces:
+    runs-on: ubuntu-latest   
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
       - uses: actions/checkout@v3
+      - id: set-matrix
+        run: echo "::set-output name=matrix::$(ls *.dsl | jq -R -s -c 'split("\n")[:-1]')"
+        
+  check:
+    needs: list-workspaces
+    runs-on: ubuntu-latest
+    container:
+      image: "structurizr/cli"  
+    strategy:
+        matrix:
+            workspace: ${{ fromJson(needs.list-workspaces.outputs.matrix) }}    
+    steps:
       - name: prepare environment
         run: | 
           chmod +x /usr/local/structurizr-cli/structurizr.sh
@@ -20,7 +32,4 @@ jobs:
         
       - name: validate omit
         run: |
-          structurizr validate -w omit.dsl
-          structurizr validate -w pubsub.dsl
-          structurizr validate -w cms.dsl
-          structurizr validate -w lambda.dsl
+          structurizr validate -w ${{ martix.workspace }}
