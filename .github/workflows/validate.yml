@@ -13,9 +13,14 @@ jobs:
       image: "structurizr/cli"
     steps:
       - uses: actions/checkout@v3
-      - run: chmod +x /usr/local/structurizr-cli/structurizr.sh
+      - name: prepare environment
+        run: | 
+          chmod +x /usr/local/structurizr-cli/structurizr.sh
+          ln -s /usr/local/structurizr-cli/structurizr.sh /bin/structurizr
+        
       - name: validate omit
         run: |
+          structurizr --help
           /usr/local/structurizr-cli/structurizr.sh validate -w omit.dsl
           /usr/local/structurizr-cli/structurizr.sh validate -w pubsub.dsl
           /usr/local/structurizr-cli/structurizr.sh validate -w cms.dsl
