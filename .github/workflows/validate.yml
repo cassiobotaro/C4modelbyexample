@@ -16,4 +16,5 @@ jobs:
       - run: chmod +x /usr/local/structurizr-cli/structurizr.sh
       - name: validate omit
         run: |
-          /usr/local/structurizr-cli/structurizr.sh --help
+          ls
+          /usr/local/structurizr-cli/structurizr.sh validate omit.dsl
