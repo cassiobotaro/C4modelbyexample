@@ -20,8 +20,7 @@ jobs:
         
       - name: validate omit
         run: |
-          structurizr --help
-          /usr/local/structurizr-cli/structurizr.sh validate -w omit.dsl
-          /usr/local/structurizr-cli/structurizr.sh validate -w pubsub.dsl
-          /usr/local/structurizr-cli/structurizr.sh validate -w cms.dsl
-          /usr/local/structurizr-cli/structurizr.sh validate -w lambda.dsl
+          structurizr validate -w omit.dsl
+          structurizr validate -w pubsub.dsl
+          structurizr validate -w cms.dsl
+          structurizr validate -w lambda.dsl
